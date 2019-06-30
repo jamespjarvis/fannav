@@ -1,0 +1,101 @@
+.fannav {
+  @import "./toggle.scss";
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  .fannav__inner {
+    position: relative;
+  }
+  .btn {
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+      0 3px 1px -2px rgba(0, 0, 0, 0.12);
+  }
+  .fannav__toggle {
+    .btn {
+      width: 56px;
+      height: 56px;
+      transition: transform 150ms ease;
+      user-select: none;
+    }
+  }
+  .fannav__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .fannav__menu__item {
+      margin-bottom: 10px;
+      position: relative;
+      transition: transform 500ms cubic-bezier(0.25, 0.8, 0.5, 1);
+      cursor: pointer;
+      z-index: -1;
+      
+      span {
+        color: black;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-100%, -50%);
+        height: 0;
+        line-height: 40px;
+        overflow: hidden;
+        font-size: 16px;
+        padding-right: 8px;
+        opacity: 0;
+        transition: height 500ms, opacity 1000ms;
+      }
+      svg {
+        font-size: 16px;
+      }
+      .btn {
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+  &.is-active {
+    .fannav__menu {
+      .fannav__menu__item {
+        animation-name: applyZ;
+        animation-delay: 350ms;
+        animation-fill-mode: forwards;
+        &:hover {
+          span {
+            height: 100%;
+            left: 0;
+            opacity: 1;
+            transform: translate(-100%, -50%);
+          }
+        }
+      }
+    }
+  }
+  @keyframes applyZ {
+    to {
+      z-index: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 150ms;
+    animation-delay: 250ms;
+    animation-fill-mode: both;
+  }
+  
+}
+
