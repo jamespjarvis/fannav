@@ -34,7 +34,7 @@
       transition: transform 500ms cubic-bezier(0.25, 0.8, 0.5, 1);
       cursor: pointer;
       z-index: -1;
-
+      
       span {
         color: black;
         position: absolute;
@@ -75,13 +75,12 @@
       }
     }
   }
-
   @keyframes applyZ {
     to {
       z-index: 1;
     }
   }
-
+  
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -90,11 +89,13 @@
       opacity: 1;
     }
   }
-
-  &.fadeIn {
+  
+  .fadeIn {
     animation-name: fadeIn;
     animation-duration: 150ms;
-    animation-delay: 300ms;
+    animation-delay: 250ms;
     animation-fill-mode: both;
   }
+  
 }
+
