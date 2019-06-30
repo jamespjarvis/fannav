@@ -1,24 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState, useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import FanNav from "./components/FanNav";
+import {
+  faUser,
+  faAmbulance,
+  faPaperPlane,
+  faCalendar
+} from "@fortawesome/free-solid-svg-icons";
+const menuItems = [
+  {
+    title: "User",
+    icon: faUser,
+    className: "btn btn-primary",
+    to: "https://google.com"
+  },
+  {
+    title: "Calendar",
+    icon: faCalendar,
+    className: "btn btn-success",
+    to: "https://google.com"
+  },
+  {
+    title: "Ambulance",
+    icon: faAmbulance,
+    className: "btn btn-danger",
+    to: "https://google.com"
+  },
+  {
+    title: "Send",
+    icon: faPaperPlane,
+    className: "btn btn-info",
+    to: "https://google.com"
+  }
+];
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FanNav items={[...menuItems, ...menuItems.slice(0, 2)]} />
     </div>
   );
 }
